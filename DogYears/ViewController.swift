@@ -24,7 +24,16 @@ class ViewController: UIViewController {
     @IBAction func convertButtonPressed(sender: AnyObject) {
         
         //Assign Dog Years
-        let dogYearsMultiplier:Int = 7
+        var humanYearsDouble = Double((humanNumberOfYears.text as NSString).doubleValue)
+        var dogYearsMultiplier:Double
+        
+        //Older or Younger then 2
+        if humanYearsDouble <= 2 {
+            dogYearsMultiplier = 10.5
+        }
+        else {
+            dogYearsMultiplier = 7
+        }
         
         //Get the Human years and make it an integer
         let humanYears = humanNumberOfYears.text.toInt()!
@@ -33,7 +42,7 @@ class ViewController: UIViewController {
         doggyNumberOfYears.hidden = false
         
         //Display and multiply Dog years and Human Years
-        doggyNumberOfYears.text = "Laika is " + "\(humanYears * dogYearsMultiplier)" + " in dog years!"
+        doggyNumberOfYears.text = "Laika is " + "\(humanYearsDouble * dogYearsMultiplier)" + " in dog years!"
         
         //Clear the Text Field
         humanNumberOfYears.text = ""
